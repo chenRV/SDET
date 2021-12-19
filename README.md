@@ -45,9 +45,9 @@ CUDA_VISIBLE_DEVICES=0 python eval.py
 
 The results should be as follows:
 
-|        Model       	| precision 	| recall 	| F-measure 	| precision (paper) 	| recall (paper) 	| F-measure (paper) 	|
-|:------------------:	|:---------:	|:------:	|:---------:	|:-----------------:	|:--------------:	|:-----------------:	|
-| ic15-resnet18  |    87.7   	|  77.5  	|    82.3   	|        86.8       	|      78.4     	|        82.3       	|
-| ic15-resnet50 (1152)|    90.7   	|  84.0  	|    87.2   	|        91.8      	  |      83.2      	|        87.3       	|
+|        Model       	| P 	| R 	| F 	| 
+|:------------------:	|:---------:	|:------:	|:---------:	|
+| ic15-resnet18  |    87.7   	|  77.5  	|    82.3   	|       
+| ic15-resnet50 (1152)|    90.7   	|  84.0  	|    87.2   	|
 
    
