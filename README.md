@@ -15,39 +15,55 @@ Some codes refer to [MhLiao/DB](https://github.com/MhLiao/DB) and [WenmuZhou/DBN
   conda install pytorch==1.4.0 torchvision==0.5.0 cudatoolkit=10.1 -c pytorch
 ```
 
-## Pre-Trained Model
-Download Trained models [Baidu Drive](https://pan.baidu.com/s/1vxcdpOswTK6MxJyPIJlBkA) (download code: p6u3)
+## Models
+Download the trained models [Baidu Drive](https://pan.baidu.com) (access code: xxx) and put them in ```SDET/pretrain_model/```.
+
+For example:
+```
+  pretrain_model/ic15_mv3_et_p0.865_r0.739_f0.797
+  pretrain_model/ic15_r50_et_p0.903_r0.821_f0.860
+```
 
 ## Datasets
-The root of the dataset directory can be ```SDET/datasets/```.
 
-An example of the path of test images: 
+The icdar2015 datasets can be downloaded from [Baidu Drive](https://pan.baidu.com) (access code: xxxx).
+
+The paths are as follows: 
 ```
-  datasets/total_text/train_images
-  datasets/total_text/train_gts
-  datasets/total_text/train_list.txt
-  datasets/total_text/test_images
-  datasets/total_text/test_gts
-  datasets/total_text/test_list.txt
+  datasets/icdar2015/train_images
+  datasets/icdar2015/train_gts
+  datasets/icdar2015/train_list.txt
+  datasets/icdar2015/test_images
+  datasets/icdar2015/test_gts
+  datasets/icdar2015/test_list.txt
 ```
 
-Download the converted ground-truth and data list [Baidu Drive](https://pan.baidu.com/s/1BPYxcZnLXN87rQKmz9PFYA) (download code: mz0a).
+
+
+## Predict
+
+Detect a single image.
+
+```CUDA_VISIBLE_DEVICES=0 python predict.py --config ic15_r50 --image_path datasets/img_328.jpg --visualize```
+
+The result is saved in `workspace` by default.
 
 
 ## Evaluate
 
-ICDAR 2015
-only train on ICDAR2015 dataset
 
 ```
-CUDA_VISIBLE_DEVICES=0 python eval.py
+CUDA_VISIBLE_DEVICES=0 python eval.py --config ic15_mv3
+CUDA_VISIBLE_DEVICES=0 python eval.py --config ic15_r50
 ```
 
 The results should be as follows:
 
 |        Model       	| P 	| R 	| F 	| 
 |:------------------:	|:---------:	|:------:	|:---------:	|
-| ic15-resnet18  |    87.7   	|  77.5  	|    82.3   	|       
-| ic15-resnet50 (1152)|    90.7   	|  84.0  	|    87.2   	|
+| ic15-mv3-sdet  |    86.5   	|  73.9  	|    79.7   	|       
+| ic15-resnet50-sdet|    90.3  	|  82.1  	|    86.0   	|
+
+only train on ICDAR2015 dataset
 
    
